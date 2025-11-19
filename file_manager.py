@@ -45,3 +45,11 @@ class filemanager:
         usuarios[new_id] = usuario
         self._write_file(usuarios)
         return usuario
+#tratarde hacer estos metodos para la siguiente clase
+    def update(self, id: int, nombre: str, edad: int):
+
+    def delete(self, id: int):
+
+    def get(self, id: int) -> usuario | none:
+
+    def get_all(self) -> dict[int, usuario]:
