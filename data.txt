@@ -1,2 +1,5 @@
 1|Jose Luis |130
 2|Elver Galagar|180
+4|Emily Alvarez|23
+5|Aiko Mida|170
+6|Alex Cremento|55

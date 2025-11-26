@@ -1,3 +1,4 @@
+import os
 from file_manager import FileManager
 
 def mostrar_menu():
@@ -13,6 +14,7 @@ def main():
     fm = FileManager()
 
     while True:
+        os.system("clear")
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
 
@@ -21,6 +23,8 @@ def main():
             edad = int(input("Edad: "))
             usuario = fm.insert(nombre, edad)
             print(f"Usuario insertado: {usuario.to_line()}")
+
+            input("Pulsa cualquier tecla y Enter para continuar...")
 
         elif opcion == "2":
             id = int(input("ID del usuario a actualizar: "))
@@ -31,12 +35,16 @@ def main():
             else:
                 print(f"No se encontró un usuario con ID {id}.")
 
+            input("Pulsa cualquier tecla y Enter para continuar...")
+
         elif opcion == "3":
             id = int(input("ID del usuario a eliminar: "))
             if fm.delete(id):
                 print(f"Usuario con ID {id} eliminado.")
             else:
                 print(f"No se encontró un usuario con ID {id}.")
+
+            input("Pulsa cualquier tecla y Enter para continuar...")
 
         elif opcion == "4":
             id = int(input("ID del usuario a consultar: "))
@@ -45,6 +53,8 @@ def main():
                 print(f"Usuario encontrado: {usuario.to_line()}")
             else:
                 print(f"No se encontró un usuario con ID {id}.")
+
+            input("Pulsa cualquier tecla y Enter para continuar...")
 
         elif opcion == "5":
             usuarios = fm.get_all()
@@ -55,6 +65,8 @@ def main():
                     print(f"Usuario: {u.to_line()}")
             else:
                 print("No hay usuarios registrados.")
+            
+            input("Pulsa cualquier tecla y Enter para continuar...")
 
         elif opcion == "6":
             print("Saliendo del programa.")
