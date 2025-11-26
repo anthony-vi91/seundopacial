@@ -1,2 +1,2 @@
-2|Jose Luis |130
-3|Elver Galagar|180
+1|Jose Luis |130
+2|Elver Galagar|180
