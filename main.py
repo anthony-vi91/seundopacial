@@ -1,4 +1,4 @@
-from file_manager import filemanager
+from file_manager import FileManager
 
 def mostrar_menu():
     print("\n---MENU---")
@@ -10,7 +10,7 @@ def mostrar_menu():
     print("6. Salir")
 
 def main():
-    fm = filemanager()
+    fm = FileManager()
 
     while True:
         mostrar_menu()
