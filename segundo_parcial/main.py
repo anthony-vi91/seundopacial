@@ -1,79 +1,27 @@
 import os
-from file_manager import FileManager
-
-def mostrar_menu():
-    print("\n---MENU---")
-    print("1. Insertar usuario")
-    print("2. Actualizar usuario")
-    print("3. Eliminar usuario")
-    print("4. Consultar usuario por ID")
-    print("5. Listar todos los usuarios")
-    print("6. Salir")
+from menus.menu_principal import mostrar_menu_principal
+from actions.acciones_usuarios import ejecutar_menu_usuarios
+from actions.acciones_productos import ejecutar_menu_productos
+from actions.acciones_ventas import ejecutar_menu_ventas
 
 def main():
-    fm = FileManager()
-
     while True:
         os.system("clear")
-        mostrar_menu()
+        mostrar_menu_principal()
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
-            nombre = input("Nombre: ")
-            edad = int(input("Edad: "))
-            usuario = fm.insert(nombre, edad)
-            print(f"Usuario insertado: {usuario.to_line()}")
-
-            input("Pulsa cualquier tecla y Enter para continuar...")
-
+            ejecutar_menu_productos()
         elif opcion == "2":
-            id = int(input("ID del usuario a actualizar: "))
-            nombre = input("Nuevo nombre: ")
-            edad = int(input("Nueva edad: "))
-            if fm.update(id, nombre, edad):
-                print(f"Usuario con ID {id} actualizado.")
-            else:
-                print(f"No se encontró un usuario con ID {id}.")
-
-            input("Pulsa cualquier tecla y Enter para continuar...")
-
+            ejecutar_menu_usuarios()
         elif opcion == "3":
-            id = int(input("ID del usuario a eliminar: "))
-            if fm.delete(id):
-                print(f"Usuario con ID {id} eliminado.")
-            else:
-                print(f"No se encontró un usuario con ID {id}.")
-
-            input("Pulsa cualquier tecla y Enter para continuar...")
-
+            ejecutar_menu_ventas()
         elif opcion == "4":
-            id = int(input("ID del usuario a consultar: "))
-            usuario = fm.get(id)
-            if usuario:
-                print(f"Usuario encontrado: {usuario.to_line()}")
-            else:
-                print(f"No se encontró un usuario con ID {id}.")
-
-            input("Pulsa cualquier tecla y Enter para continuar...")
-
-        elif opcion == "5":
-            usuarios = fm.get_all()
-            if usuarios:
-                print("\nLista de usuarios:")
-                for u in usuarios.values():
-                    #print(f"ID: {u.id}, Nombre: {u.nombre}, Edad: {u.edad}")
-                    print(f"Usuario: {u.to_line()}")
-            else:
-                print("No hay usuarios registrados.")
-            
-            input("Pulsa cualquier tecla y Enter para continuar...")
-
-        elif opcion == "6":
             print("Saliendo del programa.")
             break
-
         else:
             print("Opción inválida. Por favor, seleccione una opción válida.")
+            input("Continuar...")
 
 if __name__ == "__main__":
     main()
